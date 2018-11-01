@@ -17,12 +17,16 @@ while True:
         grt = input("Welcome to our shop, what do you want (C, R, U, D)? ")
     
     elif grt == "u" or grt == "U":
-        ud = int(input ("Update position? (in number): "))
-        #while not ud.isdigit():
-        #    print ("Please enter a number")
-        #    ud = input("Update position? ")
-        while ud > len(items):
-            ud = input("Update position? (in number): ")
+        ud = input ("Update position? (in number): ")
+        print ("Please enter a number")
+        ud = ""
+        while True:  #lap vinh vien
+            ud = input("Update position? ")
+            if ud.isdigit():
+                ud = int(ud)
+                if ud < len(items):
+                    break
+        
         
         new_item2 = input("Enter new item: ")
         items[ud-1] = new_item2
